@@ -14,6 +14,7 @@ import { CommonModule } from '@angular/common';
 })
 export class ListKittenComponent {
   kittenList: Kitten[] = [];
+  myList: Kitten[] = [];
 
   private kittenService = inject(KittenService);
 
@@ -26,7 +27,12 @@ export class ListKittenComponent {
   }
   adoptMe(event: Event) {
     console.log('ty dude', event);
-
-    console.log(event.target);
+    const element = event.currentTarget as HTMLButtonElement;
+    console.log(element.id);
+    console.log(parseInt(element.id));
+    this.kittenList = this.kittenList.filter(
+      (kitten) => kitten.id !== parseInt(element.id)
+    );
+    this.myList.push(this.kittenList[parseInt(element.id) - 1]);
   }
 }
