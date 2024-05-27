@@ -1,0 +1,14 @@
+<p>list-kitten works!</p>
+<div *ngFor="let kitten of kittenList">
+  <h1>{{ kitten.name }}</h1>
+  <p>{{ kitten.breed }}</p>
+  <p>{{ kitten.dob }}</p>
+  <img class="img" src="{{ kitten.imgSrc }}" alt="" />
+  <button
+    name="{{ kitten.name }}"
+    id="{{ kitten.id }}"
+    (click)="adoptMe($event)"
+  >
+    Adopt Me !!
+  </button>
+</div>
