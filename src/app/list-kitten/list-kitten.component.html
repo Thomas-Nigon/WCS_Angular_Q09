@@ -4,11 +4,8 @@
   <p>{{ kitten.breed }}</p>
   <p>{{ kitten.dob }}</p>
   <img class="img" src="{{ kitten.imgSrc }}" alt="" />
-  <button
-    name="{{ kitten.name }}"
-    id="{{ kitten.id }}"
-    (click)="adoptMe($event)"
-  >
+  <button name="{{ kitten.name }}" (click)="adoptMe($event)">
     Adopt Me !!
   </button>
 </div>
+{{ kittenList | json }}

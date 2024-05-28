@@ -1,20 +1,20 @@
 [
   {
-    "id": 1,
+    "id": 0,
     "name": "riri",
     "breed": "Ragdoll",
     "dob": "2019-01-01",
     "imgSrc": "https://placedog.net/800/640?id=13 "
   },
   {
-    "id": 2,
+    "id": 1,
     "name": "fifi",
     "breed": "Ragdoll",
     "dob": "2019-01-01",
     "imgSrc": "https://placedog.net/800/640?id=14"
   },
   {
-    "id": 3,
+    "id": 2,
     "name": "loulou",
     "breed": "Ragdoll",
     "dob": "2019-01-01",

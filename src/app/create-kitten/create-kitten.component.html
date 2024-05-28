@@ -1,1 +1,17 @@
 <p>create-kitten works!</p>
+<div>
+  <form [formGroup]="addKittenForm" (ngSubmit)="onSubmit()">
+    <label>Name:</label>
+    <input type="text" id="name" formControlName="name" />
+
+    <label>Date of Birth:</label>
+    <input type="date" id="dob" formControlName="dob" />
+
+    <label>Breed:</label>
+    <input type="text" id="breed" formControlName="breed" />
+
+    <label>Image Source:</label>
+    <input type="text" id="imgSrc" formControlName="imgSrc" />
+    <button>add this Kitten</button>
+  </form>
+</div>
