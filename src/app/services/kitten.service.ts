@@ -1,5 +1,4 @@
-import { Injectable, inject } from '@angular/core';
-
+import { Injectable } from '@angular/core';
 import { Kitten } from '../models/kitten.model';
 
 @Injectable({
@@ -7,17 +6,27 @@ import { Kitten } from '../models/kitten.model';
 })
 export class KittenService {
   kittenList: Kitten[] = [];
-  /* myList: Kitten[] = []; */
+  adoptedKittenList: Kitten[] = [];
 
   constructor() {}
-  /*   getKittensFromJson() {
-    return this.http.get<Kitten[]>('../assets/kittenList.json');
-  } */
+
   addKitten(kitten: Kitten) {
+    kitten.id = this.kittenList.length + 1;
     this.kittenList.push(kitten);
-    console.log('kitten to be adopted:', this.kittenList);
   }
   getKittens() {
     return this.kittenList;
+  }
+  adoptKitten(adoptedKitten: Kitten) {
+    this.adoptedKittenList.push(adoptedKitten);
+    console.log(adoptedKitten.id);
+    console.log("adopted kitten's list:", this.adoptedKittenList);
+    this.kittenList = this.kittenList.filter(
+      (kitten) => kitten.id !== adoptedKitten.id
+    );
+    console.log('kitten to be adopted:', this.kittenList);
+  }
+  getAdoptedKittens() {
+    return this.adoptedKittenList;
   }
 }

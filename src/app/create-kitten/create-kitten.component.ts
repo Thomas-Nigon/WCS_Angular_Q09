@@ -1,11 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Output, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import {
   Validators,
-  FormControl,
   FormGroup,
   ReactiveFormsModule,
-  FormsModule,
   NonNullableFormBuilder,
 } from '@angular/forms';
 import { KittenService } from '../services/kitten.service';
@@ -14,15 +12,13 @@ import { KittenService } from '../services/kitten.service';
   selector: 'app-create-kitten',
   standalone: true,
   imports: [ReactiveFormsModule, CommonModule],
-  providers: [KittenService],
   templateUrl: './create-kitten.component.html',
   styleUrl: './create-kitten.component.css',
 })
 export class CreateKittenComponent {
-  @Output() retriveKittens = new EventEmitter();
-
-  constructor(private fb: NonNullableFormBuilder) {}
   kittenService = inject(KittenService);
+  constructor(private fb: NonNullableFormBuilder) {}
+
   public addKittenForm!: FormGroup;
   ngOnInit(): void {
     this.addKittenForm = this.fb.group({
@@ -33,7 +29,6 @@ export class CreateKittenComponent {
     });
   }
   onSubmit() {
-    console.log(this.addKittenForm.value);
     this.kittenService.addKitten(this.addKittenForm?.value);
   }
 }
